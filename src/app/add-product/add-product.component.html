@@ -1,0 +1,93 @@
+
+
+    <p-button (onClick)=" showDialog()" label="Agregar" />
+    <p-dialog header="Detalles del Producto" [modal]="true" [(visible)]="visible" [style]="{ width: '35rem' }">
+   
+ <div class="form-group">
+        <div class="flex align-items-center gap-3 mb-3">
+            <label for="username" style="margin-right: 1%;"  font-semibold w-6rem  >   Nombre</label>
+            <input pInputText id="username" [(ngModel)]=selectedProduct.title ng class="form-control" class="flex-auto" autocomplete="on" />
+        </div>
+
+        <br>
+        <div class="flex align-items-center gap-3 mb-5">
+            <label for="email" style="margin-right: 1%;" class="form-control font-semibold w-6rem">descripcion</label>
+            <input pInputText id="email" class="form-control flex-auto" autocomplete="on" />
+        </div>
+        <div class="flex align-items-center gap-3 mb-5">
+            <label for="Imagen" class="form-control font-semibold w-6rem">Imagen</label>
+            <app-updatefile></app-updatefile>
+        </div>
+        <div class="flex align-items-center gap-3 mb-5">
+            <label for="email" class="font-semibold w-6rem">Categoria</label>
+            <div class="form-control card flex justify-content-center">
+                <div class="flex flex-wrap gap-3">
+                    <div class="flex align-items-center">
+                        <p-radioButton 
+                            name="pizza" 
+                            value="Cheese" 
+                            [(ngModel)]="ingredient" 
+                            inputId="ingredient1" />
+                        <label for="ingredient1" class="ml-2">
+                            Fitness
+                        </label>
+                    </div>
+                    
+                    <div class="flex align-items-center">
+                        <p-radioButton 
+                            name="pizza" 
+                            value="Mushroom" 
+                            [(ngModel)]="ingredient" 
+                            inputId="ingredient2" />
+                        <label for="ingredient2" class="ml-2">
+                            Electronics
+                        </label>
+                    </div>
+                    
+                    <div class="flex align-items-center">
+                        <p-radioButton 
+                            name="pizza" 
+                            value="Pepper" 
+                            [(ngModel)]="ingredient" 
+                            inputId="ingredient3" />
+                        <label for="ingredient3" class="ml-2">
+                            Acecesories
+                        </label>
+                    </div>
+                    
+                    <div class="flex align-items-center">
+                        <p-radioButton 
+                            name="pizza" 
+                            value="Onion" 
+                            [(ngModel)]="ingredient" 
+                            inputId="ingredient4" />
+                        <label for="ingredient4" class="ml-2">
+                            Clothing
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="card flex flex-wrap gap-3 p-fluid">
+                <div class="form-control flex-auto">
+                    <label class="block font-bold mb-2" for="currency-us">
+                        Precio
+                    </label>
+                    <p-inputNumber 
+                        [(ngModel)]="value1" 
+                        inputId="currency-us" 
+                        mode="currency" 
+                        currency="USD" 
+                        locale="en-US" /> 
+                </div>
+        </div>
+
+        <div class=" form-control flex justify-content-end gap-2">
+            <p-button label="Cancel" severity="secondary" (onClick)="visible = false" />
+            <p-button label="Save" (onClick)="add()" />
+        </div>
+
+       </div>   
+
+       </div>
+    <p-dialog>
+  

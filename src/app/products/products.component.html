@@ -1,0 +1,57 @@
+<p-dataView [value]="products">
+    <ng-template pTemplate="header">
+      <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+     <app-add-product class="button"></app-add-product>
+    </ng-template>
+    <ng-template pTemplate="listItem">
+      <div *ngFor="let product of products" class="p-col-12">
+        <div  class="product-list-item">
+          <img [src]="product.image"/>
+          <div class="product-list-detail">
+            <div class="product-name">{{ product.title }}</div>
+            <div class="product-description">{{ product.description }}</div>
+            <!-- <div class="product-name">{{ product.rating }}</div> -->
+            <i class="pi pi-tag product-category-icon"></i
+            ><span class="product-category">{{ product.category }}</span>
+          </div>
+          <div class="product-list-action">
+            <span class="product-price">${{ product.price }}</span>
+            <span
+              [class]="
+                'product-badge status-' + product.inventoryStatus
+              "
+              >{{ product.inventoryStatus }}</span
+            >
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="gridItem">
+      <div *ngFor="let product of products" class="col-4">
+        <div class="product-grid-item card">
+          <div class="product-grid-item-top">
+            <div>
+              <i class="pi pi-tag product-category-icon"></i>
+              <span class="product-category">{{ product.category }}</span>
+            </div>
+            <span
+              [class]="
+                'product-badge status-' + product.inventoryStatus
+              "
+              >{{ product.inventoryStatus }}</span
+            >
+          </div>
+          <div class="product-grid-item-content">
+            <img [src]="product.image"/>
+            <div class="product-name">{{ product.title }}</div>
+            <div class="product-description">{{ product.description }}</div>
+            <!-- <div class="product-name">{{ product.rating }}</div> -->
+          </div>
+          <div class="product-grid-item-bottom">
+            <span class="product-price">${{ product.price }}</span>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-dataView>
+  
